@@ -15,11 +15,11 @@ pipeline {
         stage('Run Tests') {
             parallel {
                 stage('Test On Windows') {
-                    agent {
-                        label "Windows_Node"
+                   agent {
+                        label "master"
                     }
                     steps {
-                        echo "Task1 on Agent"
+                        echo "Task1 on Parallel"
                     }
                     
                 }
@@ -28,8 +28,8 @@ pipeline {
                         label "master"
                     }
                     steps {
-						echo "Task1 on Master"
-					}
+				echo "Task2 on Parallel"
+			}
                 }
             }
         }
