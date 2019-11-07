@@ -19,6 +19,7 @@ pipeline {
                         label "mock"
                     }
                     steps {
+			sleep 10
                         echo "Task1 on Parallel"
                     }
                     
