@@ -1,11 +1,12 @@
 pipeline {
-    agent none
+    //agent none
+	agent any
     stages {
 	
 	stage('Non-Parallel Stage') {
-	    agent {
+	    /*agent {
                         label "master"
-                }
+                }*/
         steps {
                 echo 'This stage will be executed first'
                 }
@@ -15,9 +16,9 @@ pipeline {
         stage('Run Tests') {
             parallel {
                 stage('Test On Windows') {
-                   agent {
+                   /*agent {
                         label "mock"
-                    }
+                    }*/
                     steps {
 			sleep 10
                         echo "Task1 on Parallel"
@@ -25,9 +26,9 @@ pipeline {
                     
                 }
                 stage('Test On Master') {
-                    agent {
+                    /*agent {
                         label "win"
-                    }
+                    }*/
                     steps {
 			    	sleep 10
 				echo "Task2 on Parallel"
